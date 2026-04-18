@@ -1,0 +1,49 @@
+---
+interface Props {
+  title: string;
+  text: string;
+  image: string;
+  imageAlt: string;
+  buttonText: string;
+  href: string;
+  buttonVariant?: "dark" | "light";
+}
+
+const {
+  title,
+  text,
+  image,
+  imageAlt,
+  buttonText,
+  href,
+  buttonVariant = "dark"
+} = Astro.props;
+---
+
+<article class="feature-card">
+  <img
+    class="feature-card__paper"
+    src="/imgs/card-hori.webp"
+    alt=""
+  />
+
+  <div class="feature-card__inner">
+    <div class="feature-card__image">
+      <img src={image} alt={imageAlt} />
+    </div>
+
+    <div class="feature-card__content">
+      <h2>{title}</h2>
+      <p>{text}</p>
+      <a
+        href={href}
+        class:list={[
+          "feature-card__button",
+          buttonVariant === "light" && "feature-card__button--light"
+        ]}
+      >
+        {buttonText}
+      </a>
+    </div>
+  </div>
+</article>

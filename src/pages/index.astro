@@ -1,0 +1,90 @@
+---
+import Header from "./components/Header.astro";
+import FeatureCard from "./components/FeatureCard.astro";
+import BubleCTA from "./components/BubleCTA.astro";
+
+type Card = {
+  title: string;
+  text: string;
+  image: string;
+  imageAlt: string;
+  buttonText: string;
+  href: string;
+  buttonVariant: "dark" | "light";
+};
+
+const cards: Card[] = [
+  {
+    title: "Fælleslæsning om døden",
+    text: "Et arrangement, hvor litteratur og samtale skaber rum for fælles refleksion over død, sorg og minde.",
+    image: "/imgs/fælles.webp",
+    imageAlt: "Bog og hænder",
+    buttonText: "Se kalender",
+    href: "/kalender",
+    buttonVariant: "dark"
+  },
+  {
+    title: "Tag plasteret af",
+    text: "I forbindelse med vores kampagne Uge 44, har vi lavet et spil, som hjælper dig i gang med samtalen.",
+    image: "/imgs/image.webp",
+    imageAlt: "Person ved bord",
+    buttonText: "Del tanker",
+    href: "/tag-plasteret-af",
+    buttonVariant: "dark"
+  },
+  {
+    title: "Logo og presse",
+    text: "Herunder finder I logoer og andet materiale til kampagneugen Uge 44. Find på døden.",
+    image: "/imgs/presse.webp",
+    imageAlt: "Illustration med personer",
+    buttonText: "Læs mere",
+    href: "/presse-logo-kontakt",
+    buttonVariant: "dark"
+  }
+];
+---
+
+<html lang="da">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="robots" content="noindex,nofollow">
+		<title>Astro</title>
+	</head>
+	<body>
+	<Header/>
+<main>
+	<section class="hero">
+		<div class="hero-figure">
+			<img src="/imgs/hero-grafik-merged.webp" alt=""/>
+		</div>
+		<div class="hero-bobel">
+			<img class="hero-bobel-bg" src="/imgs/talebobel-2.webp" alt=""/>
+			<div class="hero-content">
+				<h1>Lad os tale om det der er svært</h1>
+				<p>Gennem Uge 44 skaber vi et trygt og uformelt rum, hvor unge kan dele tanker om liv, død og sorg, uden forventninger</p>
+				<a href="/om" class="hero-button">Læs mere</a>
+			</div>
+		</div>
+	</section>
+<section class="feature-section">
+  <div class="feature-list">
+    {cards.map((card) => (
+      <FeatureCard
+        title={card.title}
+        text={card.text}
+        image={card.image}
+        imageAlt={card.imageAlt}
+        buttonText={card.buttonText}
+        href={card.href}
+        buttonVariant={card.buttonVariant}
+      />
+    ))}
+  </div>
+</section>
+</main>
+	</body>
+</html>

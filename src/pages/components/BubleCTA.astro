@@ -1,0 +1,28 @@
+---
+interface Props {
+  title: string;
+  text: string;
+  href: string;
+  bubbleImage: string;
+  bubbleAlt?: string;
+  direction?: "left" | "right";
+}
+
+const {
+  title,
+  text,
+  href,
+  bubbleImage,
+  bubbleAlt = "",
+  direction = "right"
+} = Astro.props;
+---
+
+<article class:list={["speech-cta", `speech-cta--${direction}`]}>
+  <a href={href} class="speech-cta__bubble">
+    <img src={bubbleImage} alt={bubbleAlt} />
+    <span class="speech-cta__title">{title}</span>
+  </a>
+
+  <p class="speech-cta__text">{text}</p>
+</article>
