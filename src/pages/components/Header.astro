@@ -1,4 +1,6 @@
 	---
+import PaperCTA from "../components/PaperCTA.astro";
+
 const navItems = [
   { name: "Forside", href: "/" },
   { name: "Kalender", href: "/kalender" },
@@ -11,7 +13,11 @@ const navItems = [
 			<a href="/" class="logo" aria-label="Gå til forsiden">
 				<img src="/imgs/mørkt-logo.webp" alt="Mørkt Logo" />
 			</a>
-			<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Åben menu">Menu</button>
+			<PaperCTA
+  text="Menu"
+  image="/imgs/cta1.webp"
+  variant="button"
+/>
 			<nav id="main-nav" class="main-nav" aria-label="Hovedmenu">
 				<ul>
       {navItems.map((item) => (
