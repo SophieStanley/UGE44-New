@@ -1,7 +1,8 @@
 ---
-import Header from "./components/Header.astro";
+import BaseLayout from "./layouts/BaseLayout.astro";
 import FeatureCard from "./components/FeatureCard.astro";
 import BubleCTA from "./components/BubleCTA.astro";
+
 
 type Card = {
   title: string;
@@ -25,7 +26,7 @@ const cards: Card[] = [
   },
   {
     title: "Tag plasteret af",
-    text: "I forbindelse med vores kampagne Uge 44, har vi lavet et spil, som hjælper dig i gang med samtalen.",
+    text: "I forbindelse med vores kampagne Uge 44, har vi kreeret et safe space hvor du anonymt kan dele dine tanker.",
     image: "/imgs/image.webp",
     imageAlt: "Person ved bord",
     buttonText: "Del tanker",
@@ -34,7 +35,7 @@ const cards: Card[] = [
   },
   {
     title: "Logo og presse",
-    text: "Herunder finder I logoer og andet materiale til kampagneugen Uge 44. Find på døden.",
+    text: "Herunder finder I logoer og andet materiale til kampagneugen UGE 44- Fokus på døden.",
     image: "/imgs/presse.webp",
     imageAlt: "Illustration med personer",
     buttonText: "Læs mere",
@@ -44,47 +45,58 @@ const cards: Card[] = [
 ];
 ---
 
-<html lang="da">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<meta name="robots" content="noindex,nofollow">
-		<title>Astro</title>
-	</head>
-	<body>
-	<Header/>
-<main>
-	<section class="hero">
-		<div class="hero-figure">
-			<img src="/imgs/hero-grafik-merged.webp" alt=""/>
-		</div>
-		<div class="hero-bobel">
-			<img class="hero-bobel-bg" src="/imgs/talebobel-2.webp" alt=""/>
-			<div class="hero-content">
-				<h1>Lad os tale om det der er svært</h1>
-				<p>Gennem Uge 44 skaber vi et trygt og uformelt rum, hvor unge kan dele tanker om liv, død og sorg, uden forventninger</p>
-				<a href="/om" class="hero-button">Læs mere</a>
-			</div>
-		</div>
-	</section>
-<section class="feature-section">
-  <div class="feature-list">
-    {cards.map((card) => (
-      <FeatureCard
-        title={card.title}
-        text={card.text}
-        image={card.image}
-        imageAlt={card.imageAlt}
-        buttonText={card.buttonText}
-        href={card.href}
-        buttonVariant={card.buttonVariant}
+<BaseLayout title="Forside | Uge 44">
+  <section class="hero">
+    <div class="hero-figure">
+      <img src="/imgs/hero-grafik-merged.webp" alt="" />
+    </div>
+
+    <div class="hero-bobel">
+      <img class="hero-bobel-bg" src="/imgs/talebobel-2.webp" alt="" />
+      <div class="hero-content">
+        <h1>Lad os tale om det der er svært</h1>
+        <p>
+          Gennem Uge 44 skaber vi et trygt og uformelt rum, hvor unge kan dele
+          tanker om liv, død og sorg, uden forventninger
+        </p>
+        <a href="/om-os" class="hero-button">Læs mere</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="feature-section">
+    <div class="feature-list">
+      {cards.map((card) => (
+        <FeatureCard
+          title={card.title}
+          text={card.text}
+          image={card.image}
+          imageAlt={card.imageAlt}
+          buttonText={card.buttonText}
+          href={card.href}
+          buttonVariant={card.buttonVariant}
+        />
+      ))}
+    </div>
+  </section>
+
+  <section class="resource-section">
+    <div class="resource-list">
+      <BubleCTA
+        title="Filmliste"
+        text="Klik på taleboblen for at se en oversigt over forskellige spillefilm, kortfilm og dokumentarer, der handler om døden."
+        href="/filmliste"
+        bubbleImage="/imgs/talebobel-højre.png"
+        direction="right"
       />
-    ))}
-  </div>
-</section>
-</main>
-	</body>
-</html>
+
+      <BubleCTA
+        title="Bogliste"
+        text="Klik på taleboblen for at se en oversigt over forskellige digtsamlinger, børnebøger, skønlitteratur og beretninger om døden."
+        href="/bogliste"
+        bubbleImage="/imgs/talebobel-venstre.png"
+        direction="left"
+      />
+    </div>
+  </section>
+</BaseLayout>
