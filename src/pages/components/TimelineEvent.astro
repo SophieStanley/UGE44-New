@@ -128,4 +128,21 @@ const formattedDate = new Date(event.event_date).toLocaleDateString("da-DK", {
     text-decoration: underline;
     cursor: pointer;
   }
+  @media (min-width: 768px){
+    .event-card h2 {
+    font-size: 2rem;
+    }
+    .event-card p {
+    font-size: 1.5rem;
+  }
+    .event-card__cta {
+    display: block;
+    margin-inline: auto;
+    font-size: 1.5rem;
+  }
+  .event-card__image{
+    aspect-ratio: 16 / 9;
+    
+  }
+}
 </style>

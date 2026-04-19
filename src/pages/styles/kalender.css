@@ -68,3 +68,57 @@
   font-size: 0.95rem;
   color: #343551;
 }
+@media (min-width: 768px) {
+  .calendar-page {
+    width: min(100% - 2rem, 70rem);
+    margin-inline: auto;
+  }
+
+  .calendar-hero {
+    padding-block: 1.5rem 2rem;
+  }
+
+  .calendar-hero__eyebrow {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .calendar-hero h1 {
+    font-size: 4.5rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .calendar-filter {
+    grid-template-columns: auto auto;
+    align-items: center;
+    gap: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .calendar-filter label {
+    font-size: 2rem;
+  }
+
+  .calendar-filter select {
+    font-size: 1rem;
+    padding: 0.3rem 0.5rem;
+  }
+
+  .timeline {
+    padding-top: 2rem;
+  }
+
+  .timeline-list {
+    gap: 3rem;
+  }
+
+  .timeline-list::before {
+    left: 1rem;
+    width: 2px;
+  }
+
+  .timeline-empty {
+    font-size: 1rem;
+    margin-top: 1.5rem;
+  }
+}
