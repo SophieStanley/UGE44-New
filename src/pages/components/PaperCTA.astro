@@ -28,3 +28,31 @@ const {
     <span class="paper-cta__text">{text}</span>
   </a>
 )}
+<style>
+    .paper-cta{
+        position: relative;
+        display: inline-block;
+        border: none;
+        background: none;
+        padding: 0;
+        width: 6rem;
+        cursor: pointer;
+    }
+    .paper-cta__bg{
+        width: 100%;
+        height: auto;
+        display: block;
+      ;
+    }
+    .paper-cta__text{
+        position: absolute;
+       inset: 0;
+       display: grid;
+       place-items: center;
+       text-transform: uppercase;
+       font-size: 1rem;
+       font-weight: 700;
+       color: #010326;
+      
+    }
+</style>

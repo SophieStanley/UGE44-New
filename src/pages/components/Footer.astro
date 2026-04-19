@@ -8,7 +8,7 @@
   <div class="site-footer__paper-wrap">
     <img
       class="site-footer__paper"
-      src="/imgs/card-square.webp"
+      src="/imgs/card-sqaure.webp"
       alt=""
     />
 
@@ -35,13 +35,123 @@
       <section class="site-footer__column">
         <h2>Find os på sociale medier</h2>
         <ul class="site-footer__socials">
-          <li><a href="#" aria-label="Instagram">Instagram</a></li>
-          <li><a href="#" aria-label="LinkedIn">LinkedIn</a></li>
-          <li><a href="#" aria-label="Facebook">Facebook</a></li>
-          <li><a href="#" aria-label="TikTok">TikTok</a></li>
-          <li><a href="#" aria-label="YouTube">YouTube</a></li>
+          <li><a href="https://www.instagram.com/livogdoed/" aria-label="Instagram">Instagram</a></li>
+          <li><a href="https://www.linkedin.com/company/landsforeningen-liv-d-d/?originalSubdomain=dk" aria-label="LinkedIn">LinkedIn</a></li>
+          <li><a href="https://www.facebook.com/livogdoed/" aria-label="Facebook">Facebook</a></li>
+          <li><a href="https://www.tiktok.com/@landsforeningenlivogdoed" aria-label="TikTok">TikTok</a></li>
+          <li><a href="https://www.youtube.com/channel/UCR94vS0AOsDHVm_u1mKtr7w" aria-label="YouTube">YouTube</a></li>
         </ul>
       </section>
     </div>
   </div>
 </footer>
+<style>
+ .site-footer {
+    width: 100%;
+    margin-top: 1.5rem;
+    padding: 0.9rem 0 1.2rem;
+    background-color: #343551;
+  }
+
+  .site-footer__inner {
+    width: min(100% - 1rem, 23.5rem);
+    margin-inline: auto;
+  }
+
+  .site-footer__logo {
+    width: clamp(4.5rem, 18vw, 5.8rem);
+    margin-bottom: 0.8rem;
+    display: block;
+    margin-inline: auto;
+    justify-content: center;
+    
+  }
+
+  .site-footer__logo a {
+    display: inline-block;
+    text-align: center;
+  }
+
+  .site-footer__logo img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .site-footer__paper-wrap {
+    position: relative;
+    width: 100%;
+     height: 14rem; 
+  overflow: hidden;
+    
+  }
+
+  .site-footer__paper {
+ width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  }
+
+  .site-footer__content {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.9rem 1rem;
+    align-content:start;
+    padding: 2rem 4rem 4cm;
+   
+  
+  }
+
+  .site-footer__column {
+    min-width: 0;
+    
+  }
+
+  .site-footer__column h2 {
+    margin-bottom: 0.35rem;
+    font-family: "Glacial Indifference", sans-serif;
+    font-weight: 400;
+    font-size: clamp(0.48rem, 2.2vw, 0.58rem);
+    line-height: 1.2;
+  }
+
+  .site-footer__column p,
+  .site-footer__column li,
+  .site-footer__column a {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: clamp(0.36rem, 1.9vw, 0.46rem);
+    line-height: 1.35;
+  }
+
+  .site-footer__column ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .site-footer__column li + li,
+  .site-footer__column p + p {
+    margin-top: 0.18rem;
+  }
+
+  .site-footer__socials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+  }
+
+  .site-footer__socials a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.18rem 0.35rem;
+    border: 1px solid #34345c;
+    border-radius: 999px;
+    background: transparent;
+  }
+
+</style>

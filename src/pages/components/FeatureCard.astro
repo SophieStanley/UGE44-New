@@ -47,3 +47,71 @@ const {
     </div>
   </div>
 </article>
+
+<style>
+    .feature-list {
+  width: min(100%, 22rem);
+  margin-inline: auto;
+}
+    .feature-card{
+        position: relative;
+        width: 100%;
+    }
+    .feature-card__paper{
+        width: 90%;
+        height: auto;
+        display: block;
+    }
+    .feature-card__inner{
+        position: absolute;
+        inset: 0;
+        display: grid;
+         grid-template-columns: clamp(4rem, 20vw, 6rem) 1fr;
+        align-items: center;
+        gap: 0.9;
+        padding: 1rem 1rem 1rem 1.1rem;
+    }
+     .feature-card__image {
+     width: clamp(4rem, 20vw, 6rem);
+  height: clamp(4rem, 20vw, 6rem);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: right;
+    margin-left: 1.5rem;
+  }
+    .feature-card__image img{
+        width: 100%;
+        max-width: 6rem;
+        height: auto;
+        object-fit: cover;
+    }
+      .feature-card__content {
+    text-align: center;
+  }
+    .feature-card__content h2 {
+        color: #010326;
+    margin-bottom: 0.35rem;
+     font-size: clamp(0.8rem, 3vw, 1rem);
+    line-height: 1.05;
+    text-transform: uppercase;
+  }
+   .feature-card__content p {
+    color: #010326;
+    margin: 0 auto 0.55rem;
+    max-width: 21ch;
+     font-size: clamp(0.55rem, 2.5vw, 0.7rem);
+    line-height: 1.35;
+  }
+    .feature-card__button {
+        background-color: #343551;
+    display: inline-block;
+    padding: 0.5rem 0.75rem;
+    color: #fff;
+    font-size: 0.8rem;
+    line-height: 1;
+    text-decoration: underline;
+    text-transform: uppercase;
+    border-radius: 999px;
+  }
+</style>

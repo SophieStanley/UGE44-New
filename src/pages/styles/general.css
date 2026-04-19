@@ -1,7 +1,28 @@
+@font-face {
+  font-family: "Glacial Indifference";
+  src: url("/fonts/glaicial-indifference.regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Glacial Indifference";
+  src: url("/fonts/GlacialIndifference-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+html {
   background-color: #faf7f2;
 }
 main {
@@ -21,6 +42,23 @@ input,
 textarea,
 select {
   font-family: inherit;
+}
+h1 {
+  font-family: "Glacial Indifference", sans-serif;
+  font-weight: 700;
+}
+h2,
+a,
+li,
+button,
+textarea,
+select {
+  font-family: "Glacial Indifference", sans-serif;
+  font-weight: 400;
+}
+p {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
 }
 h1,
 h2,
