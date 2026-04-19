@@ -98,4 +98,42 @@ const navItems = [
      font-size: clamp(0.62rem, 2.8vw, 0.82rem);
     line-height: 1.2;
 }
+@media (min-width: 768px) {
+  .site-header {
+    width: min(100% - 2rem, 70rem);
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    padding-top: 1rem;
+  }
+  .logo{
+    width: 10rem;
+  }
+  .main-nav a{
+    font-size: 1.2rem;
+    text-decoration: underline;
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+
+  .main-nav {
+    display: block;
+    grid-column: auto;
+    margin-top: 0;
+    justify-self: end;
+  }
+
+  .main-nav ul {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 1rem;
+  }
+
+  .main-nav a {
+    border: none;
+    padding: 0.3rem 0.5rem;
+  }
+}
 </style>

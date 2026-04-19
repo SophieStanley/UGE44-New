@@ -1,0 +1,232 @@
+.about-page {
+  width: min(100% - 1rem, 23.5rem);
+  margin-inline: auto;
+  padding-block: 1rem 2rem;
+}
+
+.about-intro {
+  padding-bottom: 1rem;
+}
+
+.about-intro h1 {
+  margin-bottom: 0.55rem;
+  font-size: clamp(2rem, 8vw, 2.6rem);
+  font-weight: 700;
+  text-align: center;
+  line-height: 0.92;
+  text-transform: uppercase;
+  color: #343551;
+}
+
+.about-intro__lead {
+  margin-bottom: 0.9rem;
+  font-size: 1rem;
+  text-align: center;
+  line-height: 1.35;
+  font-weight: 700;
+  color: #010326;
+}
+
+.about-intro__sublead {
+  margin-bottom: 1rem;
+  text-align: center;
+  color: #010326;
+  font-size: 0.98rem;
+  line-height: 1.35;
+}
+
+.about-bubble-section {
+  margin-bottom: 1rem;
+}
+
+.about-bubble-section--second {
+  margin-top: 1rem;
+}
+
+.about-figure {
+  position: relative;
+  width: 100%;
+  min-height: 10rem;
+}
+
+.about-figure--right {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+.about-figure--left {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.about-bubble1,
+.about-bubble2 {
+  position: relative;
+  width: 10.5rem;
+  min-height: 6.6rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  z-index: 2;
+}
+
+.about-bubble1 {
+  background-image: url("/imgs/talebobel-højre.png");
+  margin-left: 1rem;
+  bottom: 1.4rem;
+  left: 1rem;
+}
+
+.about-bubble2 {
+  background-image: url("/imgs/talebobel-venstre.png");
+  margin-left: auto;
+  margin-right: 1rem;
+}
+
+.about-bubble__inner {
+  min-height: 6.6rem;
+  padding: 1.2rem 1rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.about-bubble__inner p {
+  font-family: "Glacial Indifference", sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.05;
+  text-transform: uppercase;
+  color: #b97866;
+}
+
+.about-creature1,
+.about-creature2 {
+  position: absolute;
+  max-width: none;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.about-creature1 {
+  width: 25rem;
+  right: 0.5rem;
+  bottom: -1rem;
+}
+
+.about-creature2 {
+  width: 30rem;
+  left: 0.5rem;
+  top: -1.5rem;
+}
+
+.about-text-block {
+  position: relative;
+
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+
+  width: 100vw;
+  background: #343551;
+  padding: 1rem 0.9rem 1.2rem;
+  border-radius: 0.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.about-text-block p {
+  color: #faf7f2;
+  text-align: center;
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.about-text-block p + p {
+  margin-top: 0.75rem;
+}
+
+.about-text-block h2 {
+  margin: 1rem 0 0.8rem;
+  text-align: center;
+  font-size: 1.75rem;
+  line-height: 1;
+  color: #d8a08f;
+  font-weight: 700;
+}
+
+.team-section__title {
+  margin-bottom: 1rem;
+  text-align: center;
+  font-size: 1.7rem;
+  line-height: 1;
+  text-transform: uppercase;
+  color: #343551;
+}
+
+.team-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.team-card {
+  display: grid;
+  grid-template-columns: 6.5rem 1fr;
+  gap: 0.8rem;
+  align-items: center;
+  padding: 2rem;
+  padding-top: 1.5rem;
+  background: url("/imgs/cta2.webp") center / 100% 100% no-repeat;
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.team-card--reverse {
+  grid-template-columns: 1fr 6.5rem;
+}
+
+.team-card--reverse img {
+  order: 2;
+}
+
+.team-card--reverse .team-card__content {
+  order: 1;
+}
+
+.team-card img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.team-card__content {
+  text-align: center;
+}
+
+.team-card__content h3 {
+  margin-bottom: 0.25rem;
+  font-size: 1.15rem;
+  line-height: 1.05;
+  color: #343551;
+}
+
+.team-card__role {
+  margin-bottom: 0.55rem;
+  color: #b97866;
+  font-size: 0.82rem;
+  line-height: 1.25;
+}
+
+.team-card__content p:not(.team-card__role) {
+  color: #010326;
+  font-size: 0.88rem;
+  line-height: 1.35;
+}
+
+.team-card__content p:not(.team-card__role) + p:not(.team-card__role) {
+  margin-top: 0.35rem;
+}
