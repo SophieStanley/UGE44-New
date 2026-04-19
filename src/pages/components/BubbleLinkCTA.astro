@@ -1,0 +1,19 @@
+---
+interface Props {
+  text: string;
+  href: string;
+  direction?: "left" | "right";
+}
+
+const { text, href, direction = "left" } = Astro.props;
+const isExternal = href.startsWith("http");
+---
+
+<a
+  href={href}
+  class={`bubble-link bubble-link--${direction}`}
+  target={isExternal ? "_blank" : undefined}
+  rel={isExternal ? "noopener noreferrer" : undefined}
+>
+  <span class="bubble-link__text">{text}</span>
+</a>

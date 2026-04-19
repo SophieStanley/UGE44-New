@@ -1,0 +1,76 @@
+---
+import BaseLayout from "./layouts/BaseLayout.astro";
+import BubbleLinkCTA from "./components/BubbleLinkCTA.astro";
+import "./styles/presse.css";
+
+const mapEmbed =
+  "https://www.google.com/maps?q=Bispebjerg%20Torv%2016%20St.%20TV%202400%20K%C3%B8benhavn%20NV&output=embed";
+---
+
+<BaseLayout title="Presse | UGE 44">
+  <section class="presse-page">
+    <section class="press-links">
+      <article class="press-links__item">
+        <BubbleLinkCTA
+  text="Filmliste"
+  href="https://livogdoed.dk/wp-content/uploads/Filmliste-2025.pdf" direction="right"
+/>
+        <div class="press-links__text">
+          <p>
+            I finder også plakater, infografikker o.a. materiale, som kan
+            downloades og benyttes af fx film eller arrangementer. Hvis I har
+            behov for dem der ellers mangler, kontakt da info@livogdoed.dk.
+          </p>
+          <p class="press-links__hint">Tryk på taleboblen for at se mere.</p>
+        </div>
+      </article>
+
+      <article class="press-links__item press-links__item--reverse">
+        <BubbleLinkCTA text="Bogliste" href="https://livogdoed.dk/wp-content/uploads/Bogliste-2025.pdf" direction="left" />
+        <div class="press-links__text">
+          <p>
+            Vi har lavet forskellige lister til download, så det kan tilpasses
+            jeres behov. For at blive en del af kampagnen skal I indsætte et
+            logo, som I selv sørger for at hente i vores grafiske materiale.
+          </p>
+          <p class="press-links__hint">Klik på taleboblen, for at se logoer.</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="contact-section">
+      <div class="paper-card">
+        <div class="paper-card__inner">
+          <h2>Kontakt</h2>
+
+          <p class="contact-line"><strong>Tlf:</strong> 33 36 49 70</p>
+          <p class="contact-line"><strong>E-mail:</strong> info@livogdoed.dk</p>
+          <p class="contact-line">
+            <strong>CVR:</strong> 25441397 (Landsforeningen Liv&amp;Død - Dansk
+            Ligbrændingsforening)
+          </p>
+        </div>
+      </div>
+
+      <div class="paper-card">
+        <div class="paper-card__inner">
+          <h2>Adresse</h2>
+
+          <p class="address-text">
+            Bispebjerg Torv 16 St. TV<br />
+            2400 København NV
+          </p>
+
+          <div class="map-frame">
+            <iframe
+              title="Kort over Bispebjerg Torv 16 St. TV, 2400 København NV"
+              src={mapEmbed}
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+</BaseLayout>

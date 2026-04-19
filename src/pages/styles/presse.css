@@ -1,0 +1,157 @@
+.presse-page {
+  width: min(100% - 1rem, 23.5rem);
+  margin-inline: auto;
+  padding-block: 1rem 2rem;
+}
+
+.press-links {
+  display: grid;
+  gap: 1.4rem;
+  margin-bottom: 1.5rem;
+}
+
+.press-links__item {
+  display: grid;
+  grid-template-columns: 8.5rem 1fr;
+  column-gap: 0.75rem;
+  align-items: start;
+}
+
+.press-links__item--reverse {
+  grid-template-columns: 1fr 8.5rem;
+}
+
+.press-links__item--reverse .bubble-link {
+  grid-column: 2;
+  justify-self: end;
+}
+
+.press-links__item--reverse .press-links__text {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.bubble-link {
+  position: relative;
+  display: inline-block;
+  width: 10rem;
+  aspect-ratio: 1.65 / 1;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.bubble-link--left {
+  background-image: url("/imgs/talebobel-venstre.png");
+}
+
+.bubble-link--right {
+  background-image: url("/imgs/talebobel-højre.png");
+}
+
+.bubble-link__text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-inline: 0.8rem;
+  text-align: center;
+  font-size: 0.9rem;
+  line-height: 1;
+  text-transform: uppercase;
+  text-decoration: underline;
+  color: #98665b;
+  font-weight: 700;
+}
+
+.press-links__text {
+  padding-top: 0.3rem;
+  padding-bottom: 0.7rem;
+  border-bottom: 1px solid #010326;
+}
+
+.press-links__text p {
+  color: #010326;
+  line-height: 1.42;
+  font-size: 0.65rem;
+  text-align: center;
+}
+
+.press-links__hint {
+  margin-top: 0.45rem;
+  font-weight: 700;
+}
+
+.contact-section {
+  position: relative;
+
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+
+  width: 100vw;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  gap: 0.9rem;
+
+  padding: 1rem;
+  background: #d99282;
+}
+
+.paper-card {
+  position: relative;
+  min-height: 10rem;
+  background: url("/imgs/card-sqaure.webp") center / 100% 100% no-repeat;
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.12));
+}
+
+.paper-card__inner {
+  height: 100%;
+  padding: 1.5rem 1.15rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.paper-card h2 {
+  margin-bottom: 1.1rem;
+  color: #343551;
+  text-transform: uppercase;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 0.95;
+}
+
+.contact-line,
+.address-text {
+  color: #010326;
+  line-height: 1.35;
+  font-size: 0.95rem;
+}
+
+.contact-line + .contact-line {
+  margin-top: 0.95rem;
+}
+
+.address-text {
+  margin-bottom: 1rem;
+}
+
+.map-frame {
+  width: 100%;
+  margin-top: auto;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border: 1px solid rgba(1, 3, 38, 0.12);
+}
+
+.map-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
