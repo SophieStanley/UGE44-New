@@ -26,3 +26,59 @@ const {
 
   <p class="speech-cta__text">{text}</p>
 </article>
+
+<style>
+  .speech-cta {
+    margin-top: 1.5rem;
+    display: grid;
+    grid-template-columns: clamp(5rem, 24vw, 7rem) 1fr;
+    align-items: center;
+    gap: clamp(0.5rem, 2vw, 0.8rem);
+  }
+
+  .speech-cta--left {
+    grid-template-columns: 1fr clamp(5rem, 24vw, 7rem);
+  }
+
+  .speech-cta--left .speech-cta__bubble {
+    order: 2;
+  }
+
+  .speech-cta--left .speech-cta__text {
+    order: 1;
+  }
+
+  .speech-cta__bubble {
+    position: relative;
+    display: block;
+    width: 100%;
+  }
+
+  .speech-cta__bubble img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .speech-cta__title {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding: clamp(0.5rem, 2vw, 0.9rem);
+    text-align: center;
+    text-transform: uppercase;
+    font-size: clamp(0.6rem, 2.8vw, 0.9rem);
+    line-height: 1;
+    font-weight: 700;
+    color: #a16d5f;
+  }
+
+  .speech-cta__text {
+    padding-bottom: 0.35rem;
+    border-bottom: 1px solid #010326;
+    text-align: center;
+    font-size: clamp(0.7rem, 2.4vw, 0.75rem);
+    line-height: 1.4;
+  }
+  </style>

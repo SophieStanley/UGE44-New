@@ -17,6 +17,10 @@ const navItems = [
   text="Menu"
   image="/imgs/cta1.webp"
   variant="button"
+  class="menu-toggle"
+  aria-expanded="false"
+  aria-controls="main-nav"
+  aria-label="Åben menu"
 />
 			<nav id="main-nav" class="main-nav" aria-label="Hovedmenu">
 				<ul>
@@ -44,3 +48,54 @@ const navItems = [
     }
   });
 </script>
+<style>
+ .site-header {
+    width: min(100%, 23.5rem);
+    margin-inline: auto;
+    padding: 0.5rem 0.5rem 0;
+    display: grid;
+    grid-template-columns: minmax(2.8rem, 4.2rem) auto;
+    justify-content: space-between;
+    align-items: start;
+    gap: 0.5rem 0.75rem;
+    position: relative;
+  }
+.logo{
+    display: inline-block;
+    width: clamp(2.8rem, 12vw, 4.2rem);
+}
+.logo img{
+    width: auto;
+    display: block;
+    height: auto;
+}
+.menu-toggle{
+    justify-self: right;
+     width: clamp(4.8rem, 24vw, 6.5rem);
+
+}
+.main-nav{
+    display: none;
+    grid-column: 1 / -1;
+    margin-top: 0.4rem;
+}
+.main-nav.is-open{
+    display: block;
+}
+.main-nav ul{
+   
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.main-nav a{
+    display: block;
+    border: 2px solid #010326;
+    padding: 0.55rem 0.7rem;
+    color: #010326;
+    text-align: center;
+    text-transform: uppercase;
+     font-size: clamp(0.62rem, 2.8vw, 0.82rem);
+    line-height: 1.2;
+}
+</style>
