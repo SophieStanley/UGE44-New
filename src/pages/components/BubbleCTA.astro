@@ -81,4 +81,61 @@ const {
     font-size: clamp(0.7rem, 2.4vw, 0.75rem);
     line-height: 1.4;
   }
+@media (min-width: 768px) {
+  .speech-cta {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: start;
+    align-items: center;
+    column-gap: 2rem;
+    row-gap: 0;
+    margin-top: 0;
+  }
+
+  .speech-cta--left {
+    justify-content: end;
+    grid-template-columns: auto auto;
+  }
+
+  .speech-cta__bubble {
+    width: 25rem;
+  }
+
+  .speech-cta__bubble img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .speech-cta__title {
+    font-size: 2.5rem;
+    padding: 3rem;
+    text-decoration: underline;
+  }
+
+  .speech-cta__text {
+    width: 40rem;
+    font-size: 2rem;
+    line-height: 1.5;
+    text-align: center;
+    border-bottom: 1px solid #343551;
+    padding-bottom: 0.75rem;
+  }
+
+  .speech-cta:not(.speech-cta--left) .speech-cta__bubble {
+    order: 1;
+  }
+
+  .speech-cta:not(.speech-cta--left) .speech-cta__text {
+    order: 2;
+  }
+
+  .speech-cta--left .speech-cta__text {
+    order: 1;
+  }
+
+  .speech-cta--left .speech-cta__bubble {
+    order: 2;
+  }
+}
   </style>

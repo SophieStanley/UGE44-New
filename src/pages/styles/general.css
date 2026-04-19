@@ -73,3 +73,9 @@ ul {
 section {
   width: min(100%);
 }
+@media (min-width: 1280px) {
+  main {
+    max-width: 80rem;
+    margin-inline: auto;
+  }
+}
