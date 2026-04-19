@@ -162,3 +162,97 @@
   color: #faf7f2;
   line-height: 1.4;
 }
+@media (min-width: 768px) {
+  .plasteret-page {
+    width: min(100% - 2rem, 75rem);
+    padding-block: 2rem 3rem;
+  }
+
+  .plasteret-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+  }
+
+  .share-box,
+  .thoughts-section {
+    min-height: 35rem;
+  }
+
+  .share-box {
+    padding: 2rem 1.5rem 2.2rem;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0.8rem;
+    border-bottom-left-radius: 0.8rem;
+  }
+
+  .paper {
+    width: min(100%, 24rem);
+  }
+
+  .paper__content {
+    padding: 2.2rem 1.8rem 1.8rem;
+  }
+
+  .paper h1 {
+    font-size: 2.5rem;
+  }
+
+  .share-box__intro {
+    max-width: 22rem;
+    margin: 1.2rem auto 1rem;
+    font-size: 1.5rem;
+  }
+
+  .share-form textarea {
+    width: min(100%, 19rem);
+    min-height: 10rem;
+    padding: 0.85rem;
+    font-size: 1.2rem;
+  }
+
+  .share-form__button {
+    margin-top: 0.8rem;
+    padding: 1rem 2.8rem;
+    font-size: 1.7rem;
+  }
+
+  .form-message {
+    max-width: 19rem;
+    font-size: 1rem;
+  }
+
+  .thoughts-section {
+    padding: 2rem 1.5rem 2.2rem;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0.8rem;
+    border-top-right-radius: 0.8rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .thoughts-section h2 {
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+  }
+
+  .thoughts-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+
+  .thought-card {
+    min-height: 14rem;
+    padding: 1rem 0.75rem;
+  }
+
+  .thought-card p {
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+  }
+
+  .thoughts-message {
+    font-size: 1rem;
+  }
+}
