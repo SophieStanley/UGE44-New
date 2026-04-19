@@ -1,0 +1,138 @@
+---
+import "./styles/kalender.css";
+import BaseLayout from "./layouts/BaseLayout.astro";
+import TimelineEvent from "./components/TimelineEvent.astro";
+import SignupModel from "./components/SignupModel.astro";
+import { supabase } from "./lib/supabase";
+
+let safeEvents: any[] = [];
+let locations: string[] = [];
+let fetchError = "";
+
+try {
+  const { data, error } = await supabase
+    .from("Events")
+    .select("*")
+    .order("event_date", { ascending: true })
+    .order("event_time", { ascending: true });
+
+  if (error) {
+    fetchError = error.message;
+    console.error("Supabase error:", error);
+  } else {
+    safeEvents = data ?? [];
+    locations = [...new Set(safeEvents.map((event) => event.location))];
+  }
+} catch (err) {
+  fetchError = err instanceof Error ? err.message : "Ukendt fejl";
+  console.error("Fetch error:", err);
+}
+---
+
+<BaseLayout title="Kalender | UGE 44">
+  <section class="calendar-page">
+    <div class="calendar-hero">
+      <p class="calendar-hero__eyebrow">Kalender/events</p>
+      <h1>UGE 44 EVENTS</h1>
+
+      <div class="calendar-filter">
+        <label for="location-filter">Lokation:</label>
+        <select id="location-filter" name="location">
+          <option value="all">Vælg lokation</option>
+          {locations.map((location) => (
+            <option value={location.toLowerCase()}>{location}</option>
+          ))}
+        </select>
+      </div>
+    </div>
+
+    <section class="timeline" aria-label="Kalender med events">
+      {fetchError && safeEvents.length === 0 && (
+        <p class="timeline-empty">Der opstod en fejl ved hentning af events.</p>
+      )}
+
+      {safeEvents.length > 0 ? (
+        <>
+          <ol class="timeline-list" id="timeline-list">
+            {safeEvents.map((event) => (
+              <TimelineEvent event={event} />
+            ))}
+          </ol>
+
+          <p class="timeline-empty" id="timeline-empty" hidden>
+            Der er ingen events i den valgte lokation.
+          </p>
+        </>
+      ) : !fetchError ? (
+        <p class="timeline-empty">Der er ingen events endnu.</p>
+      ) : null}
+    </section>
+  </section>
+
+  <script>
+    const filter = document.querySelector("#location-filter");
+    const items = document.querySelectorAll(".timeline-item");
+    const emptyMessage = document.querySelector("#timeline-empty");
+
+    filter?.addEventListener("change", (e) => {
+      const target = e.target;
+      if (!(target instanceof HTMLSelectElement)) return;
+
+      const selected = target.value;
+      let visibleCount = 0;
+
+      items.forEach((item) => {
+        if (!(item instanceof HTMLElement)) return;
+
+        const location = item.dataset.location;
+        const shouldShow = selected === "all" || location === selected;
+
+        item.style.display = shouldShow ? "" : "none";
+
+        if (shouldShow) visibleCount++;
+      });
+
+      if (emptyMessage instanceof HTMLElement) {
+        emptyMessage.hidden = visibleCount !== 0;
+      }
+    });
+  </script>
+  <script>
+  const modal = document.querySelector("#signup-modal");
+  const eventName = document.querySelector("#signup-event-name");
+  const openButtons = document.querySelectorAll("[data-open-signup]");
+  const closeButtons = document.querySelectorAll("[data-close-signup]");
+
+  openButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const title = button.getAttribute("data-event-title");
+
+      if (eventName && title) {
+        eventName.textContent = title;
+      }
+
+      if (modal instanceof HTMLElement) {
+        modal.hidden = false;
+        document.body.style.overflow = "hidden";
+      }
+    });
+  });
+
+  closeButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      if (modal instanceof HTMLElement) {
+        modal.hidden = true;
+        document.body.style.overflow = "";
+      }
+    });
+  });
+
+  window.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && modal instanceof HTMLElement && !modal.hidden) {
+      modal.hidden = true;
+      document.body.style.overflow = "";
+    }
+  });
+</script>
+  <SignupModel />
+</BaseLayout>

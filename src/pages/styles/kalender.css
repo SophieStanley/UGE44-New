@@ -1,0 +1,70 @@
+.calendar-page {
+  width: min(100% - 1rem, 23.5rem);
+  margin-inline: auto;
+  padding-bottom: 2rem;
+}
+
+.calendar-hero {
+  padding-block: 0.75rem 1rem;
+}
+
+.calendar-hero__eyebrow {
+  margin-bottom: 0.35rem;
+  font-size: 0.95rem;
+  color: #010326;
+}
+
+.calendar-hero h1 {
+  margin-bottom: 0.9rem;
+  font-size: clamp(2.4rem, 10vw, 4rem);
+  line-height: 0.9;
+  text-transform: uppercase;
+  color: #010326;
+}
+
+.calendar-filter {
+  display: grid;
+  gap: 0.25rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid #010326;
+}
+
+.calendar-filter label {
+  font-size: 0.95rem;
+  color: #010326;
+}
+
+.calendar-filter select {
+  width: fit-content;
+  border: 1px solid #010326;
+  background: #faf7f2;
+  color: #010326;
+  padding: 0.2rem 0.35rem;
+  font-size: 0.95rem;
+}
+
+.timeline {
+  padding-top: 1.2rem;
+}
+
+.timeline-list {
+  position: relative;
+  display: grid;
+  gap: 2rem;
+}
+
+.timeline-list::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0.55rem;
+  width: 1px;
+  background: #010326;
+}
+
+.timeline-empty {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  color: #343551;
+}
