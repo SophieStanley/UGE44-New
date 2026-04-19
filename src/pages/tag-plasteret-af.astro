@@ -1,0 +1,121 @@
+---
+import BaseLayout from "./layouts/BaseLayout.astro";
+import { supabase } from "./lib/supabase";
+import Paper from "./components/Paper.astro";
+import "./styles/plasteret.css";
+
+interface Thought {
+  id: number;
+  message: string;
+  approved: boolean;
+  created_at: string;
+}
+
+let thoughts: Thought[] = [];
+let fetchError = "";
+let submitSuccess = false;
+let submitError = "";
+
+if (Astro.request.method === "POST") {
+  const formData = await Astro.request.formData();
+  const message = formData.get("message");
+
+  if (typeof message === "string") {
+    const trimmedMessage = message.trim();
+
+    if (trimmedMessage.length > 0) {
+      const { error } = await supabase.from("Thoughts").insert([
+        {
+          message: trimmedMessage,
+          approved: false
+        }
+      ]);
+
+      if (error) {
+        submitError = "Noget gik galt. Prøv igen.";
+        console.error("Insert error:", error);
+      } else {
+        submitSuccess = true;
+      }
+    } else {
+      submitError = "Skriv en tanke, før du deler.";
+    }
+  }
+}
+
+try {
+  const { data, error } = await supabase
+    .from("Thoughts")
+    .select("*")
+    .eq("approved", true)
+    .order("created_at", { ascending: false })
+    .limit(6);
+
+  if (error) {
+    fetchError = error.message;
+    console.error("Fetch error:", error);
+  } else {
+    thoughts = (data as Thought[]) ?? [];
+  }
+} catch (err) {
+  fetchError = err instanceof Error ? err.message : "Ukendt fejl";
+  console.error("Network error:", err);
+}
+---
+
+<BaseLayout title="Tag plasteret af | UGE 44">
+  <section class="plasteret-page">
+    <section class="share-box">
+      <Paper>
+        <h1>Tag plasteret af</h1>
+      </Paper>
+
+      <p class="share-box__intro">
+        Tag det første skridt og del dine tanker anonymt og i dit eget tempo.
+      </p>
+
+      <form method="POST" class="share-form">
+        <label class="sr-only" for="message">Skriv dine tanker her</label>
+        <textarea
+          id="message"
+          name="message"
+          placeholder="Skriv dine tanker her..."
+          rows="6"
+          required
+        ></textarea>
+
+        <button type="submit" class="share-form__button">Del</button>
+      </form>
+
+      {submitSuccess && (
+        <p class="form-message form-message--success">
+          Din tanke er sendt ind anonymt og vises efter godkendelse.
+        </p>
+      )}
+
+      {submitError && (
+        <p class="form-message form-message--error">
+          {submitError}
+        </p>
+      )}
+    </section>
+
+    <section class="thoughts-section">
+      <h2>Andres tanker</h2>
+
+      {fetchError ? (
+        <p class="thoughts-message">Tankerne kunne ikke hentes lige nu.</p>
+      ) : thoughts.length > 0 ? (
+        <ul class="thoughts-grid">
+          {thoughts.map((thought) => (
+            <li class="thought-card">
+              <p>{thought.message}</p>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p class="thoughts-message">Der er ingen delte tanker endnu.</p>
+      )}
+    </section>
+  </section>
+</BaseLayout>
