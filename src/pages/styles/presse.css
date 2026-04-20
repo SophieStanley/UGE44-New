@@ -155,3 +155,91 @@
   height: 100%;
   border: 0;
 }
+@media (min-width: 768px) {
+  .presse-page {
+    width: min(100% - 2rem, 75rem);
+    padding-block: 2rem 3rem;
+  }
+
+  .press-links {
+    gap: 2.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .press-links__item {
+    grid-template-columns: 16rem 1fr;
+    column-gap: 2rem;
+    align-items: center;
+  }
+
+  .press-links__item--reverse {
+    grid-template-columns: 1fr 16rem;
+  }
+
+  .bubble-link {
+    width: 16rem;
+  }
+
+  .bubble-link__text {
+    font-size: 1.5rem;
+    padding-inline: 1.2rem;
+  }
+
+  .press-links__text {
+    padding-top: 0.5rem;
+    padding-bottom: 0.9rem;
+  }
+
+  .press-links__text p {
+    max-width: 34ch;
+    font-size: 1.5rem;
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  .press-links__item:not(.press-links__item--reverse) .press-links__text {
+    justify-self: start;
+  }
+
+  .press-links__item--reverse .press-links__text {
+    justify-self: end;
+  }
+
+  .contact-section {
+    gap: 2rem;
+    padding: 2rem;
+  }
+
+  .paper-card {
+    min-height: 26rem;
+  }
+
+  .paper-card__inner {
+    padding: 2rem 1.75rem 1.6rem;
+  }
+
+  .paper-card h2 {
+    margin-bottom: 1.3rem;
+    font-size: 2.6rem;
+  }
+
+  .contact-line,
+  .address-text {
+    font-size: 1.5rem;
+    line-height: 1.45;
+  }
+
+  .contact-line + .contact-line {
+    margin-top: 1.1rem;
+  }
+
+  .address-text {
+    margin-bottom: 1.2rem;
+  }
+
+  .map-frame {
+    width: min(100%, 15rem);
+    aspect-ratio: 1 / 1;
+    margin-inline: auto;
+  }
+}
