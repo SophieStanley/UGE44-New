@@ -1,0 +1,88 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { supabase } from "../lib/supabase";
+
+export async function getStaticPaths() {
+  const { data, error } = await supabase.from("Events").select("id");
+
+  if (error) {
+    console.error("Supabase error i getStaticPaths:", error);
+    return [];
+  }
+
+  return (data ?? []).map((event) => ({
+    params: { id: String(event.id) },
+  }));
+}
+
+const { id } = Astro.params;
+
+const { data: event, error } = await supabase
+  .from("Events")
+  .select("*")
+  .eq("id", id)
+  .single();
+
+if (error || !event) {
+  throw new Error("Event blev ikke fundet");
+}
+
+const formattedDate = new Date(event.event_date).toLocaleDateString("da-DK", {
+  day: "numeric",
+  month: "long",
+  year: "numeric",
+});
+---
+
+<BaseLayout title={`${event.title} | UGE 44`}>
+  <section class="event-detail">
+    <div class="event-detail__inner">
+      {event.image && (
+        <img src={event.image} alt={event.title} class="event-detail__image" />
+      )}
+
+      <p class="event-detail__meta">
+        {formattedDate} · {event.event_time} · {event.location}
+      </p>
+
+      <h1>{event.title}</h1>
+      <p>{event.description}</p>
+
+      <a href="/kalender" class="event-detail__back">← Tilbage til kalender</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .event-detail {
+    padding: 2rem 1rem;
+  }
+
+  .event-detail__inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    gap: 1rem;
+  }
+
+  .event-detail__image {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .event-detail__meta {
+    color: #343551;
+    font-size: 0.95rem;
+  }
+
+  .event-detail h1 {
+    font-size: 2rem;
+    line-height: 1.1;
+  }
+
+  .event-detail__back {
+    width: fit-content;
+    margin-top: 1rem;
+  }
+</style>
