@@ -1,17 +1,25 @@
 ---
 interface Props {
   text: string;
-  href: string;
+  href?: string;
   direction?: "left" | "right";
+  className?: string;
 }
 
-const { text, href, direction = "left" } = Astro.props;
-const isExternal = href.startsWith("http");
+const {
+  href = "",
+  text,
+  direction = "right",
+  className = "",
+} = Astro.props;
+
+const isInternal = typeof href === "string" && href.startsWith("/");
+const isExternal = typeof href === "string" && !isInternal && href !== "";
 ---
 
 <a
   href={href}
-  class={`bubble-link bubble-link--${direction}`}
+  class={`bubble-link bubble-link--${direction} ${className}`}
   target={isExternal ? "_blank" : undefined}
   rel={isExternal ? "noopener noreferrer" : undefined}
 >
