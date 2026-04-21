@@ -10,10 +10,14 @@ interface EventItem {
 }
 
 interface Props {
-  event: EventItem;
+  event?: EventItem;
 }
 
 const { event } = Astro.props;
+
+if (!event) {
+  throw new Error("TimelineEvent requires an event prop");
+}
 
 const formattedDate = new Date(event.event_date).toLocaleDateString("da-DK", {
   day: "numeric",
